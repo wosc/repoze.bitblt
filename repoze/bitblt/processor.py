@@ -7,6 +7,7 @@ import webob
 
 try:
     import PIL.Image as Image
+    import PIL.ImageOps as ImageOps
 except ImportError:
     import PIL # to get useful exception if missing
     import Image
@@ -56,15 +57,20 @@ class ImageTransformationMiddleware(object):
         if icc_profile is not None:
             kw['icc_profile'] = icc_profile
 
+        resized_image = image
         if size != image.size:
             if size[0] is None:
-                size = (image.size[0], size[1])
+                size = (image.size[0] * size[1] / image.size[1], size[1])
             elif size[1] is None:
-                size = (size[0], image.size[1])
-            image.thumbnail(size, self.filter)
+                size = (size[0], image.size[1] * size[0] / image.size[0])
+            if size[0] != image.size[0] and size[1] != image.size[1]:
+                method = ImageOps.fit
+            else:
+                method = Image.Image.resize
+            resized_image = method(image, (size[0], size[1]), self.filter)
 
         f = StringIO()
-        image.save(f, image.format.upper(), **kw)
+        resized_image.save(f, image.format.upper(), **kw)
         return f.getvalue()
 
     def __call__(self, environ, start_response):

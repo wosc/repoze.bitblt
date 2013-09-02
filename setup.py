@@ -43,7 +43,7 @@ setup(name='repoze.bitblt',
       namespace_packages=['repoze'],
       zip_safe=False,
       install_requires=[
-           'PIL',
+           'Pillow',
            'WebOb',
            ],
       test_suite="repoze.bitblt.tests",

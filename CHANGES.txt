@@ -11,6 +11,10 @@ x.y (released unknown)
   remove the Content-Length header as we cannot calculate the right
   value without knowing the image.
 
+- Use Pillow instead of PIL which is unmaintained for years now.
+
+- Allow cropping image to a specified width and height.
+
 0.9 (released 2012-10-18)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
