@@ -15,6 +15,8 @@ x.y (released unknown)
 
 - Allow cropping image to a specified width and height.
 
+- Normalize sizes <=0 to 1 to prevent spurious errors.
+
 0.9 (released 2012-10-18)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 

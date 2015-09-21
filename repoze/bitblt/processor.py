@@ -116,6 +116,12 @@ class ImageTransformationMiddleware(object):
                         height = None
                     else:
                         height = int(height)
+
+                    if width <= 0:
+                        width = 1
+                    if height <= 0:
+                        height = 1
+
                     size = (width, height)
                 except (ValueError, TypeError):
                     raise ValueError(
