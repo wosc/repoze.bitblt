@@ -1,8 +1,8 @@
 Changelog
 ---------
 
-x.y (released unknown)
-~~~~~~~~~~~~~~~~~~~~~~
+0.9+crop.and.inputvalidation (released 2015-09-21)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Don't error trying to process .ico files. Just return the original
   data.

@@ -12,7 +12,7 @@
 #
 ##############################################################################
 
-__version__ = '0.9'
+__version__ = '0.9+crop.and.inputvalidation'
 
 import os
 from setuptools import setup, find_packages
